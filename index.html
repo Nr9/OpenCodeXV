@@ -30,9 +30,15 @@
 				box-shadow: none;
 			}
 
-			div.monospace
-			{
+			div.monospace {
 				font-family: monospace;
+			}
+
+			#langpop
+			{
+				-webkit-box-sizing: border-box;
+	  			-moz-box-sizing: border-box;
+	        	box-sizing: border-box;
 			}
 		</style>
 		
@@ -60,31 +66,33 @@
 					</div>
 				</section>
 
-				<section>
-					<h2>Motivations</h2>					
-					<ul>
-						<li class="fragment">Montrer les liens avec d'autres languages</li>
-						<li class="fragment">Discuter de l'évolution de Java</li>
-					</ul> 
-				</section>
-
 				<!-- ******************************** Java ******************************** -->
 				<section>
 					<section>
-						<p>
+						<h3>
 							Java est un language très populaire.
-						</p>
-						<h3 class="fragment">Pourquoi?</h3>
+						</h3>
 						<img src="images/TIOBE-Index.png" alt="TIOBE Programming Community Index for September 2013"/>
 						<p style="margin-top: -20px">
 							<i><small>Source: TIOBE Programming Community Index for September 2013</small></i>
 	        			</p>
 					</section>
 					<section>
+						<h3>
+							Java est un language très populaire.
+						</h3>
 						<img src="images/TIOBE-Index-Trend.png" alt="TIOBE Programming Community Index for September 2013"/>
 						<p style="margin-top: -20px">
 							<i><small>Source: TIOBE Programming Community Index for September 2013</small></i>
 	        			</p>
+					</section>
+					<section>
+						<iframe id="langpop" src="http://langpop.corger.nl/" width="80%" height="80%" style="margin:0;overflow:hidden;border:1px solid #CCC;border-width:1px 1px 0;margin-bottom:5px"> </iframe>
+						
+						<p>
+							<i><small>Source: <a href="http://langpop.corger.nl/">http://langpop.corger.nl/</a></small></i>
+	        			</p>
+
 					</section>
 				</section>
 
@@ -96,9 +104,9 @@
 				<section>
 					<h2>Groovy</h2>
 					<ul>
-						<li>is an agile and dynamic language for the <strong>Java Virtual Machine</strong>.</li>
-						<li>builds upon the strengths of Java but has <strong>additional power features</strong> inspired by languages like Python, Ruby and Smalltalk.</li>
-						<li>makes <strong>modern programming features</strong> available to Java developers with almost-zero learning curve.</li>
+						<li>is an <strong>agile and dynamic</strong> language for the <b>Java Virtual Machine</b>.</li>
+						<li>builds upon the strengths of Java but has <strong>additional power features</strong> inspired by languages like <b>Python</b>, <b>Ruby</b> and <b>Smalltalk</b>.</li>
+						<li>makes modern programming features available to Java developers with <strong>almost-zero learning curve</strong>.</li>
 						<li>supports <strong>Domain-Specific Languages</strong> and other compact syntax so your code becomes easy to read and maintain.</li>
 					</ul>
 				</section>
@@ -214,7 +222,114 @@ puts hello_world.greet
 				</section>
 
 				<section>
-					
+					<section>
+						<h2>Syntaxe Groovy</h2>
+						<p>
+							La syntaxe Groovy est riche et flexible. Voici quelque examples.
+						</p>
+					</section>
+
+					<section>
+						<h2>GString</h2>
+						<pre><code data-trim language-java>		
+foxtype = 'quick'
+foxcolor = ['b', 'r', 'o', 'w', 'n']
+assert 'The quick brown fox' == "The $foxtype ${foxcolor.join()} fox"
+						</code></pre>
+					</section>
+
+					<section>
+						<h2>Operator Overloading</h2>
+						<table width="100%">
+							<tbody>
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a == b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+a.equals(b) or a.compareTo(b) == 0
+										</code></pre>
+									</td>
+								</tr>
+
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a != b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+!a.equals(b)
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a <=> b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+a.compareTo(b)
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a > b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+a.compareTo(b) > 0
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a >= b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+a.compareTo(b) >= 0
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a < b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+a.compareTo(b) < 0
+										</code></pre>
+									</td>
+								</tr>
+								<tr>
+									<th>
+										<pre><code data-trim language-java>
+a <= b
+										</code></pre>
+									</th>
+									<td>
+										<pre><code data-trim language-java>
+a.compareTo(b) <= 0
+										</code></pre>
+									</td>
+								</tr>
+							</tbody>
+						</table>	
+					</section>
 
 					<section>
 						<h2>List</h2>
@@ -323,13 +438,40 @@ assert x == [1, 2, 3]
 				</section>
 
 				<section>
-					<h2>Meta programmation</h2>
-					<pre><code data-trim language-java>		
+					<section>
+						<h2>Meta programmation</h2>
+						<pre><code data-trim language-java>		
 def s = "Hello Groovy"
 String.metaClass.shout = { delegate.toUpperCase() }
 assert s.shout() == "HELLO GROOVY"
-					</code></pre>
+						</code></pre>
+					</section>		
+
+					<section>
+						<h2>Meta programmation</h2>
+						<pre><code data-trim language-java>		
+class SingletonCalculator {
+    private total = 0
+    def add(a) { total += a }
+}
+						</code></pre>
+						<pre><code data-trim language-java>		
+class CalculatorMetaClass extends MetaClassImpl {
+    private final static INSTANCE = new SingletonCalculator()
+    CalculatorMetaClass() { super(SingletonCalculator) }
+    def invokeConstructor(Object[] arguments) { return INSTANCE }
+}
+
+def registry = GroovySystem.metaClassRegistry
+registry.setMetaClass(SingletonCalculator, new CalculatorMetaClass())
+						</code></pre>
+						<pre><code data-trim language-java>		
+def calc = new SingletonCalculator()
+						</code></pre>
+					</section>	
 				</section>
+
+
 
 				<section>
 					<img class="no-border" src="images/grails-logo.jpg" alt="Grails"/>
@@ -342,10 +484,10 @@ assert s.shout() == "HELLO GROOVY"
 				<section>
 					<h2>Grails</h2>
 					<ul>
-						<li>Groovy Web Application Framework.</li>
-						<li>inpired by Dynamic Frameworks like Rails, Django and TurboGears.</li>
-						<li>based on the Don't Repeat Yourself (DRY) principle.</li>
-						<li>convention over configuration.</li>
+						<li>Groovy <strong>Web Application Framework</strong>.</li>
+						<li>inpired by Dynamic Frameworks like <b>Rails</b>, <b>Django</b> and <b>TurboGears</b>.</li>
+						<li>based on the <strong>Don't Repeat Yourself</strong> (DRY) principle.</li>
+						<li><strong>Convention over Configuration</strong>.</li>
 					</ul>								
 				</section>
 
@@ -360,11 +502,16 @@ assert s.shout() == "HELLO GROOVY"
 							</ul>
 						</li>
 						<li>Hibenate</li>
+						<li>SiteMesh</li>
 						<li>embedded Tomcat</li>
 					</ul>								
 				</section>
-
 				
+				<section>
+					<h3>Structure</h3>
+					<img height="80%" class="no-border" src="images/grails-structure.png" alt="Projet Grails"/>
+				</section>
+
 				<section>
 					<div class="monospace">
 						<ul>
@@ -511,21 +658,6 @@ def criteria = Account.withCriteria {
 				</section>
 
 				<section>
-					<h2>Controllers</h2>
-
-				</section>
-
-				<section>
-					<h2>Views</h2>
-
-				</section>
-
-				<section>
-					<h2>URL Mapping</h2>
-
-				</section>
-
-				<section>
 					<h2>Services</h2>
 					<pre><code data-trim language-java>		
 class BookService {
@@ -548,15 +680,127 @@ class BookService {
 					</code></pre>
 				</section>
 
+				<section>
+					<h2>Controllers</h2>
+					<pre><code data-trim language-java>		
+class BookController {
+    def list() {
+        def map = [books: Book.list(params), total: Book.count()]
+        render(view: "books", model: map)
+    }
+
+    def show() {
+        [book: Book.get(params.id)]
+    }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>Controllers</h2>
+					<pre><code data-trim language-java>		
+class BookController {
+    def json()
+    {
+        render Book.list(params) as JSON
+    }
+
+    def xml()
+    {
+        render Book.list(params) as XML
+    }
+}
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>GSP</h2>
+					<pre><code data-trim language-java>		
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;${book?.title}&lt;/title&gt;
+        &lt;r:require module="jquery"/&gt;
+        &lt;r:layoutResources/&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        <div class="book" id="${book?.id}">
+            <div>Title: ${book?.title}</div>
+            <div>Author: ${book?.author?.name}</div>
+        </div>
+        &lt;r:layoutResources/&gt;
+    &lt;/body&gt;
+&lt;/html&gt;					
+					</code></pre>
+				</section>
+
+				<section>
+					<h2>URL Mapping</h2>
+					<pre><code data-trim language-java>		
+class UrlMappings {
+
+    static mappings = {
+        "/$controller/$action?/$id?"{
+            constraints {
+                // apply constraints here
+            }
+        }
+
+        "/"(view:"/index")
+        "500"(view:'/error')
+        "404"(view:'/404')
+    }
+}
+					</code></pre>
+				</section>
+
+
+
 
 				<section>
 					<h2>Plugins</h2>
+
+					<table width="100%">
+						<tbody>
+							<tr>
+								<td>Spring Security</td>
+								<td>LDAP</td>
+								<td>Mongo</td>
+							</tr>
+							<tr>
+								<td>Quartz</td>
+								<td>Resources</td>
+								<td>Neo4J</td>
+							</tr>
+							<tr>
+								<td>jQuery</td>
+								<td>Mail</td>
+								<td>Rabbit MQ</td>
+							</tr>
+							<tr>
+								<td>Joda</td>
+								<td>Zipped Resources</td>
+								<td>Redis</td>
+							</tr>
+							<tr>
+								<td>Searchable</td>
+								<td>Console</td>
+								<td>...</td>
+							</tr>
+						</tbody>
+					</table>
+
+
 
 				</section>
 
 				<!-- ************************************************************************ -->
 				<!-- ******************************** The End ******************************* -->
 				<!-- ************************************************************************ -->
+
+				<section>
+					<h1>Démo!</h1>
+				</section>
 
 				<section>
 					<h1>Question?</h1>
