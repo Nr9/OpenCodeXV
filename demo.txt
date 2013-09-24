@@ -1,0 +1,12 @@
+grails creat-app OpenCode15
+grails
+run-app
+create-domain-class Book
+http://localhost:8080/OpenCode15/dbconsole
+  jdbc:h2:mem:devDb
+
+static scaffold = true
+
+compile ':spring-security-core:1.2.7.3'
+grails compile
+grails s2-quickstart opencode15 User Role
